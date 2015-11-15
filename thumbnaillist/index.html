@@ -16,16 +16,15 @@
 
 var Badge = React.createClass({
   render: function(){
-    this.props //{} see options below
-    return <button className="btn btn-primary" type="button">
+    return (<button className="btn btn-primary" type="button">
              {this.props.title} <span className="badge">{this.props.number}</span>
-           </button>
+           </button>)
   }
 });
 
 var Thumbnail = React.createClass({
   render: function(){
-    return <div className="thumbnail">
+    return (<div className="thumbnail">
       <img src={this.props.imageURL} />
       <div className="caption">
         <h3>{this.props.header}</h3>
@@ -34,16 +33,16 @@ var Thumbnail = React.createClass({
           <Badge title={this.props.title} number={this.props.number} />
         </p>
       </div>
-    </div>
+    </div>)
   }
 });
 
 var Thumbnaillist = React.createClass({
   render: function(){
     var list = this.props.thumbnailData.map(function(obj){
-      return <Thumbnail {...obj} />
+      return (<Thumbnail {...obj} />)
     });
-    return <div>{list}</div>
+    return (<div>{list}</div>)
   }
 });
 
