@@ -1,8 +1,13 @@
 var React = require('react');
 var Button = require('./button');
+var ListItem = require('./listitem');
 //var List  = require('./list');
 
 module.exports = React.createClass({
+
+	handleClick: function(){
+		alert("Hello from dropdown.jsx");
+	},
 
 	render: function () {
 		var visible;
@@ -15,8 +20,13 @@ module.exports = React.createClass({
 		//	visible = "hidden";
 		//}
 
+		var list = this.props.items.map(function(item){
+			return <ListItem item={item} />
+		});
+
 		return (<div className="dropdown">
-			<Button className="btn-default" title={this.props.title} subTitleclassName="caret"/>
+			<Button whenClicked={this.handleClick} className="btn-default" title={this.props.title} subTitleClassName="caret"/>
+			<ul>{list}</ul>
 		</div>)
 	}
 
